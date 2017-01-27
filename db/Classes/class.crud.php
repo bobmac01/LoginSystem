@@ -24,7 +24,6 @@ class crud
             $stmt->bindparam(":contact", $contact);
             $stmt->execute();
             return true;
-
         }
         catch(PDOException $e)
         {
@@ -88,10 +87,10 @@ class crud
                 ?>
                     <tr>
                         <td><?php print($row['id']); ?></td>
-                        <td><?php print($row['first_name']); ?></td>
-                        <td><?php print($row['last_name']); ?></td>
-                        <td><?php print($row['email_id']); ?></td>
-                        <td><?php print($row['contact_no']); ?></td>
+                        <td><?php print($row['firstname']); ?></td>
+                        <td><?php print($row['lastname']); ?></td>
+                        <td><?php print($row['email']); ?></td>
+                        <td><?php print($row['contact']); ?></td>
                         <td align="center">
                             <a href="edit-data.php?edit_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-edit"></i></a>
                         </td>

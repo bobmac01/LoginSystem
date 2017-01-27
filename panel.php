@@ -6,7 +6,7 @@ include_once 'db/dbconfig.php';
     <div class="clearfix"></div>
 
     <div class="container">
-        <a href="#" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i>Add Records</a>
+        <a href="add-data.php" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i>Add Records</a>
     </div>
 
     <div class="clearfix"></div><br />
@@ -23,7 +23,7 @@ include_once 'db/dbconfig.php';
             </tr>
             <?php
             $query = "SELECT * FROM userdetails";
-            $number_on_page=3;
+            $number_on_page=10;
             $newquery = $crud->paging($query,$number_on_page);
             $crud->viewAll($newquery);
             ?>
