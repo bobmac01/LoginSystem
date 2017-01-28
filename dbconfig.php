@@ -17,8 +17,8 @@
     }
 
 
-    include_once 'classes/class.user.php';
-    include_once 'classes/class.crud.php';
+    include_once 'db/Classes/class.user.php';
+    include_once 'db/Classes/class.crud.php';
     $user = new USER($DB_con);
     $crud = new crud($DB_con);
 

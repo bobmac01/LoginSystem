@@ -1,37 +1,37 @@
 <?php
 
-
-include "$_SERVER[DOCUMENT_ROOT]/LoginSystem/db/dbconfig.php";
+include_once($_SERVER['DOCUMENT_ROOT'] . "/LoginSystem/dbconfig.php");
 
 class crud
 {
-    private $db;
+    public $db;
 
     public function __construct($DB_con)
     {
         $this->db = $DB_con;
     }
 
-    public function create($fname, $lname, $email, $contact)
+    public function create($fname,$lname,$email,$contact)
     {
         try
         {
-
-            $stmt = $this->db->prepare("INSERT INTO userdetails (firstname, lastname, email, contact) 
-    VALUES (:firstname, :lastname, :email, :contact)");
-
-            $stmt->bindparam(":fname", $fname);
-            $stmt->bindparam(":lname", $lname);
-            $stmt->bindparam(":email", $email);
-            $stmt->bindparam(":contact", $contact);
+            //$sql = "INSERT INTO users(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)";
+            //$stmt = $this->db->prepare($sql);
+            
+            $stmt = $this->db->prepare("INSERT INTO users(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)");
+            $stmt->bindparam(":fname",$fname);
+            $stmt->bindparam(":lname",$lname);
+            $stmt->bindparam(":email",$email);
+            $stmt->bindparam(":contact",$contact);
             $stmt->execute();
             return true;
         }
         catch(PDOException $e)
         {
-            echo $e->getMessage();
+            var_dump($e->getMessage());
             return false;
         }
+
     }
 
     public function getID($id)
@@ -169,7 +169,4 @@ class crud
             ?></ul><?php
         }
     }
-
-
-
 }

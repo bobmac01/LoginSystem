@@ -1,6 +1,6 @@
 <?php
 
-include_once 'db/dbconfig.php';
+include_once 'dbconfig.php';
 
 if(isset($_POST['btn-save']))
 {
@@ -8,6 +8,7 @@ if(isset($_POST['btn-save']))
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
+
     $error = $crud->create($fname,$lname,$email,$contact);
 
     if($crud->create($fname,$lname,$email,$contact))
@@ -17,6 +18,7 @@ if(isset($_POST['btn-save']))
     else
     {
         header("Location: add-data.php?failure");
+
         //var_dump($error);
     }
 }
@@ -50,10 +52,7 @@ else if(isset($_GET['failure']))
     <div class="clearfix"></div><br />
 
     <div class="container">
-
-
         <form method='post'>
-
             <table class='table table-bordered'>
 
                 <tr>
@@ -67,7 +66,7 @@ else if(isset($_GET['failure']))
                 </tr>
 
                 <tr>
-                    <td>Your E-mail ID</td>
+                    <td>Your E-mail</td>
                     <td><input type='text' name='email' class='form-control' required></td>
                 </tr>
 
@@ -84,11 +83,8 @@ else if(isset($_GET['failure']))
                         <a href="index.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> Back to index?</a>
                     </td>
                 </tr>
-
             </table>
         </form>
-
-
     </div>
 
 <?php include_once 'Include/footer.php'; ?>
