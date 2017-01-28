@@ -9,6 +9,10 @@ body {
 {
     margin-top:80px;
 }
+
+.navbar-header {
+    width: 100%;
+}
 h2
 {
     font-family:Tahoma, Geneva, sans-serif;

@@ -16,8 +16,10 @@ class crud
     {
         try
         {
-            $stmt = $this->db->prepare("INSERT INTO userdetails(firstname, lastame, email, contact) VALUES
-(:fname, :lname, :email, :contact)");
+
+            $stmt = $this->db->prepare("INSERT INTO userdetails (firstname, lastname, email, contact) 
+    VALUES (:firstname, :lastname, :email, :contact)");
+
             $stmt->bindparam(":fname", $fname);
             $stmt->bindparam(":lname", $lname);
             $stmt->bindparam(":email", $email);

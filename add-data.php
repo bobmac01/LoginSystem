@@ -8,6 +8,7 @@ if(isset($_POST['btn-save']))
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
+    $error = $crud->create($fname,$lname,$email,$contact);
 
     if($crud->create($fname,$lname,$email,$contact))
     {
@@ -16,7 +17,7 @@ if(isset($_POST['btn-save']))
     else
     {
         header("Location: add-data.php?failure");
-        var_dump($error);
+        //var_dump($error);
     }
 }
 ?>
@@ -40,7 +41,6 @@ else if(isset($_GET['failure']))
     <div class="container">
         <div class="alert alert-warning">
             <strong>SORRY!</strong> ERROR while inserting record !
-            <strong><?php echo $error; ?></strong>
         </div>
     </div>
     <?php

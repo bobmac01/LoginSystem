@@ -12,10 +12,10 @@
     <div class="container">
 
         <div class="navbar-header">
-            <a class="navbar-brand" href="#" title='Programming Blog'>Link 1</a>
-            <a class="navbar-brand" href="#">Link 2</a>
-            <a class="navbar-brand" href="#">Link 3</a>
-            <a class="navbar-brand" href="#">Link 4</a>
+            <a class="navbar-brand" href="panel.php">Panel</a>
+            <a class="navbar-brand" href="add-data.php">Add Entry</a>
+            <a class="navbar-brand" href="index.php.php" style="float: right;">Log In</a>
+            <a class="navbar-brand" href="sign-up.php" style="float: right;">Register</a>
         </div>
 
     </div>
