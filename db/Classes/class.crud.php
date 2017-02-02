@@ -1,6 +1,8 @@
 <?php
 
-include_once($_SERVER['DOCUMENT_ROOT'] . "/LoginSystem/dbconfig.php");
+//include_once($_SERVER['DOCUMENT_ROOT'] . "/LoginSystem/dbconfig.php");
+
+include_once("db_config.php");
 
 class crud
 {
@@ -8,17 +10,19 @@ class crud
 
     public function __construct($DB_con)
     {
+    // Intialising the DB connection from db_config.php
         $this->db = $DB_con;
     }
 
     public function create($fname,$lname,$email,$contact)
     {
+    /*
+    *	Function used to create a new user in the database.
+    *	Somehow it is inserting that one user twice. This is to be fixed
+    */
         try
-        {
-            //$sql = "INSERT INTO users(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)";
-            //$stmt = $this->db->prepare($sql);
-            
-            $stmt = $this->db->prepare("INSERT INTO users(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)");
+        {   
+            $stmt = $this->db->prepare("INSERT INTO userdetails(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)");
             $stmt->bindparam(":fname",$fname);
             $stmt->bindparam(":lname",$lname);
             $stmt->bindparam(":email",$email);
@@ -28,22 +32,30 @@ class crud
         }
         catch(PDOException $e)
         {
-            var_dump($e->getMessage());
+            echo $e->getMessage();
             return false;
         }
 
     }
 
-    public function getID($id)
+    public function getUserInfo($id)
     {
+    /*
+    *	Function is used to display all information about a user
+    *	Paremeters needed is one ID
+    */
         $stmt = $this->db->prepare("SELECT * FROM userdetails WHERE id = :id");
         $stmt->execute(array(":id" =>$id));
         $editedRow = $stmt->fetch(PDO::FETCH_ASSOC);
+        
         return $editedRow;
     }
 
     public function update($id, $fname, $lname, $email, $contact)
     {
+    /*
+    *	Used to update user details.
+    */
         try
         {
             $stmt=$this->db->prepare("UPDATE userdetails SET firstname=:fname, lastname=:lname, email_id=:email, 
@@ -69,6 +81,7 @@ class crud
 
     public function delete($id)
     {
+    // This deletes a user given a specified ID as parameter
         $stmt = $this->db->prepare("DELETE FROM userdetails WHERE id = :id");
         $stmt->bindparam(':id', $id);
         $stmt->execute();
@@ -79,9 +92,12 @@ class crud
 
     public function viewAll($query)
     {
+    // Shows all users in database for panel.php main page
+    
         $stmt = $this->db->prepare($query);
         $stmt->execute();
-
+	// Checking is rowCount of the above query is greater than 0.
+	// If so display all
         if($stmt->rowCount() > 0)
         {
             while($row = $stmt->fetch(PDO::FETCH_ASSOC))
@@ -105,6 +121,7 @@ class crud
         }
         else
         {
+        
             ?>
                 <tr>
                     <td>Nothing is here... Check the DB entries</td>

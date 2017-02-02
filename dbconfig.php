@@ -3,8 +3,8 @@
     // Fill these in with the database details
     $db_host = 'localhost';
     $db_user = 'root';
-    $db_pass = '';
-    $db_name = 'databaselogin';
+    $db_pass = 'root';
+    $db_name = 'userdetails';
 
     try
     {

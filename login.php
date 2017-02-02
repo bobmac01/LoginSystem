@@ -1,6 +1,6 @@
 <?php
 
-require_once 'db/dbconfig.php';
+require_once 'dbconfig.php';
 
 if($user->loggedin() != '')
 {
@@ -19,16 +19,9 @@ if(isset($_POST['btn-login'])) {
     }
 }
 ?>
+<?php include_once 'Include/header.php'; ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login System</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles/style.css" type="text/css"  />
-</head>
-<body>
-<div class="container">
+<div class="container small">
     <div class="form-container">
         <form method="post">
             <h2>Log into your account</h2><hr />
@@ -59,6 +52,3 @@ if(isset($_POST['btn-login'])) {
         </form>
     </div>
 </div>
-
-</body>
-</html>

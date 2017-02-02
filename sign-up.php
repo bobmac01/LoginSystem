@@ -1,5 +1,5 @@
 <?php
-require_once 'db/dbconfig.php';
+require_once 'dbconfig.php';
 
 if($user->loggedin()!="")
 {
@@ -57,16 +57,9 @@ if(isset($_POST['btn-signup']))
 }
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Register</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles/style.css" type="text/css"  />
-    </head>
-<body>
-<div class="container">
+<?php include_once 'Include/header.php'; ?>
+
+<div class="container small">
     <div class="form-container">
         <form method="post">
             <h2>Register for an account</h2><hr />
@@ -107,10 +100,7 @@ if(isset($_POST['btn-signup']))
                 </button>
             </div>
             <br />
-            <label>Already registered?<a href="index.php"> Sign In here</a></label>
+            <label>Already registered?<a href="login.php"> Sign In here</a></label>
         </form>
     </div>
 </div>
-
-</body>
-</html>

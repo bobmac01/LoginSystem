@@ -11,7 +11,7 @@ include_once 'dbconfig.php';
 
     <div class="clearfix"></div><br />
 
-    <div class="container">
+    <div class="container panel">
         <table class='table table-bordered table-responsive'>
             <tr>
                 <th></th>
@@ -40,4 +40,3 @@ include_once 'dbconfig.php';
 
     </div>
 
-<?php include_once 'Include/footer.php'; ?>

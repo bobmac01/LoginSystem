@@ -1,35 +1,34 @@
-<?php
-include_once 'db/dbconfig.php';
-if(!$user->loggedin())
-{
-    $user->redirect('index.php');
-}
-$user_id = $_SESSION['user_session'];
-$stmt = $DB_con->prepare("SELECT * FROM users WHERE user_id=:user_id");
-$stmt->execute(array(":user_id"=>$user_id));
-$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="Styles/style.css" type="text/css"  />
-    <title>welcome - <?php print($userRow['user_email']); ?></title>
+    <title>Welcome</title>
 </head>
 
 <body>
 
-<div class="header">
-    <div class="left">
-        <label><a href="#">Home Page</a></label>
-    </div>
-    <div class="right">
-        <label><a href="logout.php?logout=true"><i class="glyphicon glyphicon-log-out"></i> logout</a></label>
+<?php include('Include/header.php') ?>
+<div class="container-fluid">
+<div class="jumbotron text-center">
+	<div class="container">
+    	<h1 class="jumbotron-heading">This is a heading</h1>
+        <p class="lead text-muted">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
     </div>
 </div>
-<div class="content">
-    Hello <?php print($userRow['user_name']); ?>!
+
+<div class="shopping">
+	<div class="row">
+		<div class="col-md-3">.col-md-1</div>
+		<div class="col-md-3">.col-md-1</div>
+		<div class="col-md-3">.col-md-1</div>
+		<div class="col-md-3">.col-md-1</div>
+	</div>
 </div>
+
+</div>
+
+
 </body>
 </html>
