@@ -2,6 +2,9 @@
 
 //include_once($_SERVER['DOCUMENT_ROOT'] . "/LoginSystem/dbconfig.php");
 
+//Try this way. It should obtain the path of the project root instead of the server.
+//include_once(dirname("__FILE__") . "/dbconfig.php");
+
 include_once("db_config.php");
 
 class crud
