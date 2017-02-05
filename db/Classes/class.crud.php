@@ -3,9 +3,10 @@
 //include_once($_SERVER['DOCUMENT_ROOT'] . "/LoginSystem/dbconfig.php");
 
 //Try this way. It should obtain the path of the project root instead of the server.
-//include_once(dirname("__FILE__") . "/dbconfig.php");
+//include_once(dirname("__FILE__") . "/db/dbconfig.php");
 
-include_once("db_config.php");
+include_once(dirname("__FILE__") . "/db/dbconfig.php");
+//include_once("db_config.php");
 
 class crud
 {
@@ -17,15 +18,18 @@ class crud
         $this->db = $DB_con;
     }
 
-    public function create($fname,$lname,$email,$contact)
+    public function create($user, $pass, $fname,$lname,$email,$contact)
     {
+
     /*
     *	Function used to create a new user in the database.
-    *	Somehow it is inserting that one user twice. This is to be fixed
     */
         try
         {   
-            $stmt = $this->db->prepare("INSERT INTO userdetails(firstname,lastname,email,contact) VALUES(:fname, :lname, :email, :contact)");
+            $stmt = $this->db->prepare("INSERT INTO userdetails(username, hashed, firstname,lastname,email,contact) 
+                VALUES(:uname, :hash, :fname, :lname, :email, :contact)");
+            $stmt->bindparam(":uname", $user);
+            $stmt->bindparam(":hash", $pass);
             $stmt->bindparam(":fname",$fname);
             $stmt->bindparam(":lname",$lname);
             $stmt->bindparam(":email",$email);
@@ -54,16 +58,17 @@ class crud
         return $editedRow;
     }
 
-    public function update($id, $fname, $lname, $email, $contact)
+    public function update($id, $username, $fname, $lname, $email, $contact)
     {
     /*
     *	Used to update user details.
     */
         try
         {
-            $stmt=$this->db->prepare("UPDATE userdetails SET firstname=:fname, lastname=:lname, email_id=:email, 
+            $stmt=$this->db->prepare("UPDATE userdetails SET username=:uname firstname=:fname, lastname=:lname, email_id=:email, 
                 contact_no=:contact WHERE id=:id ");
 
+            $stmt->bindparam(":uname", $username);
             $stmt->bindparam(":fname",$fname);
             $stmt->bindparam(":lname",$lname);
             $stmt->bindparam(":email",$email);
@@ -108,12 +113,13 @@ class crud
                 ?>
                     <tr>
                         <td><?php print($row['id']); ?></td>
+                        <td><?php print($row['username']); ?></td>
                         <td><?php print($row['firstname']); ?></td>
                         <td><?php print($row['lastname']); ?></td>
                         <td><?php print($row['email']); ?></td>
                         <td><?php print($row['contact']); ?></td>
                         <td align="center">
-                            <a href="edit-data.php?edit_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="edit-user.php?edit_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-edit"></i></a>
                         </td>
                         <td align="center">
                             <a href="delete.php?delete_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-remove-circle"></i></a>

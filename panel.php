@@ -1,11 +1,14 @@
 <?php
-include_once 'dbconfig.php';
+//include_once 'dbconfig.php';
+include_once(dirname("__FILE__") . "/db/dbconfig.php");
+
 ?>
 <?php include_once 'Include/header.php'; ?>
 
     <div class="clearfix"></div>
 
     <div class="container">
+    <br />
         <a href="add-data.php" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i>Add Records</a>
     </div>
 
@@ -15,6 +18,7 @@ include_once 'dbconfig.php';
         <table class='table table-bordered table-responsive'>
             <tr>
                 <th></th>
+                <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>

@@ -1,17 +1,17 @@
 <?php
 
-include_once 'dbconfig.php';
+include_once(dirname("__FILE__") . "/db/dbconfig.php");
 
 if(isset($_POST['btn-save']))
 {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
 
-    //$error = $crud->create($fname,$lname,$email,$contact);
-
-    if($crud->create($fname,$lname,$email,$contact))
+    if($crud->create($user, $pass, $fname,$lname,$email,$contact))
     {
         header("Location: add-data.php?inserted");
     }
@@ -22,6 +22,7 @@ if(isset($_POST['btn-save']))
         //var_dump($error);
     }
 }
+
 ?>
 <?php include_once 'Include/header.php'; ?>
     <div class="clearfix"></div>
@@ -42,7 +43,7 @@ else if(isset($_GET['failure']))
     ?>
     <div class="container">
         <div class="alert alert-warning">
-            <strong>SORRY!</strong> ERROR while inserting record !
+            <strong>SORRY!</strong> ERROR while inserting record!
         </div>
     </div>
     <?php
@@ -54,6 +55,15 @@ else if(isset($_GET['failure']))
     <div class="container medium">
         <form method='post'>
             <table class='table table-bordered'>
+
+                <tr>
+                    <td>Username</td>
+                    <td><input type='text' name='username' class='form-control' required></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type='text' name='password' class='form-control' required></td>
+                </tr>
 
                 <tr>
                     <td>First Name</td>
@@ -72,7 +82,7 @@ else if(isset($_GET['failure']))
 
                 <tr>
                     <td>Contact Number</td>
-                    <td><input type='text' name='contact' class='form-control' maxlength="10" onkeypress="return isNumberKey(event)" required></td>
+                    <td><input type='text' name='contact' class='form-control' maxlength="10"  required onkeypress="return isNumberKey(event)"></td>
                 </tr>
                 
                 <tr>
