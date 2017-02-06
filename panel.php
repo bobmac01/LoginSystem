@@ -17,12 +17,13 @@ include_once(dirname("__FILE__") . "/db/dbconfig.php");
     <div class="container panel">
         <table class='table table-bordered table-responsive'>
             <tr>
-                <th></th>
+                <th>ID</th>
                 <th>Username</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Contact</th>
+                <th>Location</th>
                 <th colspan="2" align="center">Actions</th>
             </tr>
             <?php

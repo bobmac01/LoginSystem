@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS `userdetails` (
   `firstname` varchar(25) NOT NULL,
   `lastname` varchar(25) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `contact` bigint(10) NOT NULL,
+  `contact` bigint(15) NOT NULL,
+  `location` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 );

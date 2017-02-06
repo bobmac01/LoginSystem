@@ -10,16 +10,15 @@ if(isset($_POST['btn-save']))
     $lname = $_POST['lastname'];
     $email = $_POST['email'];
     $contact = $_POST['contact'];
+    $location = $_POST['location'];
 
-    if($crud->create($user, $pass, $fname,$lname,$email,$contact))
+    if($crud->create($user, $pass, $fname,$lname,$email,$contact, $location))
     {
         header("Location: add-data.php?inserted");
     }
     else
     {
         header("Location: add-data.php?failure");
-
-        //var_dump($error);
     }
 }
 
@@ -27,11 +26,13 @@ if(isset($_POST['btn-save']))
 <?php include_once 'Include/header.php'; ?>
     <div class="clearfix"></div>
 
+
 <?php
 if(isset($_GET['inserted']))
 {
     ?>
     <div class="container">
+    <br />
         <div class="alert alert-info">
             <strong>Record inserted fine :-)</strong>
         </div>
@@ -43,7 +44,7 @@ else if(isset($_GET['failure']))
     ?>
     <div class="container">
         <div class="alert alert-warning">
-            <strong>SORRY!</strong> ERROR while inserting record!
+            <strong>Oops</strong>. There's an error inserting the user
         </div>
     </div>
     <?php
@@ -55,7 +56,6 @@ else if(isset($_GET['failure']))
     <div class="container medium">
         <form method='post'>
             <table class='table table-bordered'>
-
                 <tr>
                     <td>Username</td>
                     <td><input type='text' name='username' class='form-control' required></td>
@@ -82,13 +82,13 @@ else if(isset($_GET['failure']))
 
                 <tr>
                     <td>Contact Number</td>
-                    <td><input type='text' name='contact' class='form-control' maxlength="10"  required onkeypress="return isNumberKey(event)"></td>
+                    <td><input type='text' name='contact' class='form-control' maxlength="15"  required onkeypress="return isNumberKey(event)"></td>
                 </tr>
                 
                 <tr>
                     <td>Location</td>
                     <td>
-                    	<select class="form-control">
+                    	<select class="form-control" name="location">
 							<option value="Scotland" title="Scotland">Scotland</option>
 							<option value="Wales" title="Wales">Wales</option>
 							<option value="Northern Ireland" title="Northern Ireland">Northern Ireland</option>
@@ -100,7 +100,7 @@ else if(isset($_GET['failure']))
 
                 <tr>
                     <td colspan="2">
-                        <a href="index.php" class="btn btn-large btn-success left">Back to index?</a>
+                        <a href="panel.php" class="btn btn-large btn-success left">Back to index?</a>
 
                         <button type="submit" class="btn btn-primary right" name="btn-save">
                         	Create New Record
