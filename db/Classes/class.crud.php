@@ -6,7 +6,6 @@
 //include_once(dirname("__FILE__") . "/db/dbconfig.php");
 
 include_once(dirname("__FILE__") . "/db/dbconfig.php");
-//include_once("db_config.php");
 
 class crud
 {
@@ -65,9 +64,10 @@ class crud
     */
         try
         {
-            $stmt=$this->db->prepare("UPDATE userdetails SET username=:uname firstname=:fname, lastname=:lname, email_id=:email, 
-                contact_no=:contact WHERE id=:id ");
-
+            $stmt=$this->db->prepare("
+                UPDATE userdetails SET username = :uname, firstname = :fname, lastname = :lname, email=:email, 
+                contact=:contact WHERE id=:id ");
+            // Binding parameters to the SQL query
             $stmt->bindparam(":uname", $username);
             $stmt->bindparam(":fname",$fname);
             $stmt->bindparam(":lname",$lname);
@@ -97,7 +97,6 @@ class crud
     }
 
     // Pagination functions
-
     public function viewAll($query)
     {
     // Shows all users in database for panel.php main page
