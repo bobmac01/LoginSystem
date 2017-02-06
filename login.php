@@ -30,7 +30,7 @@ if(isset($_POST['btn-login'])) {
             {
                 ?>
                 <div class="alert alert-danger">
-                    <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?> !
+                     <?php echo $error; ?> !
                 </div>
                 <?php
             }
@@ -44,7 +44,7 @@ if(isset($_POST['btn-login'])) {
             <div class="clearfix"></div><hr />
             <div class="form-group">
                 <button type="submit" name="btn-login" class="btn btn-block btn-primary">
-                    <i class="glyphicon glyphicon-log-in"></i>&nbsp;Sign in
+                    Sign in
                 </button>
             </div>
             <br />

@@ -100,7 +100,7 @@ else if(isset($_GET['failure']))
 
                 <tr>
                     <td colspan="2">
-                        <a href="panel.php" class="btn btn-large btn-success left">Back to index?</a>
+                        <a href="panel.php" class="btn btn-large btn-success left">Back to index</a>
 
                         <button type="submit" class="btn btn-primary right" name="btn-save">
                         	Create New Record

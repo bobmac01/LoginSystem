@@ -59,7 +59,7 @@ public function getUserInfo($id)
     return $editedRow;
 }
 
-public function update($id, $username, $fname, $lname, $email, $contact, $location)
+public function update($id, $username, $fname, $lname, $email, $contact)
 {
     /*
     *	Used to update user details.
@@ -68,14 +68,13 @@ public function update($id, $username, $fname, $lname, $email, $contact, $locati
     {
         $stmt=$this->db->prepare("
             UPDATE userdetails SET username = :uname, firstname = :fname, lastname = :lname, email=:email, 
-            contact=:contact, location=:location WHERE id=:id ");
-            // Binding parameters to the SQL query
+            contact=:contact WHERE id=:id ");
+        // Binding parameters to the SQL query
         $stmt->bindparam(":uname", $username);
         $stmt->bindparam(":fname",$fname);
         $stmt->bindparam(":lname",$lname);
         $stmt->bindparam(":email",$email);
         $stmt->bindparam(":contact",$contact);
-        $stmt->bindparam(":location", $location);
         $stmt->bindparam(":id",$id);
         $stmt->execute();
 
@@ -121,10 +120,10 @@ public function viewAll($query)
                 <td><?php print($row['contact']); ?></td>
                 <td><?php print($row['location']); ?></td>
                 <td align="center">
-                    <a href="edit-user.php?edit_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="edit-user.php?edit_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-pencil"></i></a>
                 </td>
                 <td align="center">
-                    <a href="delete-user.php?delete_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-remove-circle"></i></a>
+                    <a href="delete-user.php?delete_id=<?php print($row['id']); ?>"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
             <?php

@@ -23,7 +23,7 @@ if(isset($_POST['btn-del']))
  {
   ?>
         <div class="alert alert-success">
-     <strong>Deleted!</strong> 
+     <strong>User has been deleted</strong> 
   </div>
         <?php
  }
@@ -31,7 +31,7 @@ if(isset($_POST['btn-del']))
  {
   ?>
         <div class="alert alert-danger">
-     You are about to delete this user?
+     You are about to <strong>delete</strong> this user. Are you sure?
   </div>
         <?php
  }

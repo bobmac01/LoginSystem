@@ -2,7 +2,6 @@
 
 class security
 {
-
 	function passwordSalt($pass)
 	{
 		// Anything more uses more processing power
@@ -12,13 +11,15 @@ class security
 		// Using a blowfish algorithm
 		$salt = sprintf("$2a$%02d$", $cost) . $salt;
 		// Hashing the salt
-		$hash = crypt($pass, $hash);
+		$hash = crypt($pass, $salt);
 		// returning hash to verify and store data
 		return $hash;
-
 	}
 
+	function sortInput($string)
+	{
 
+	}
 }
 
 ?>

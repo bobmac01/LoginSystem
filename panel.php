@@ -9,7 +9,7 @@ include_once(dirname("__FILE__") . "/db/dbconfig.php");
 
     <div class="container">
     <br />
-        <a href="add-data.php" class="btn btn-large btn-info"><i class="glyphicon glyphicon-plus"></i>Add Records</a>
+        <a href="add-data.php" class="btn btn-large btn-info">Add a user</a>
     </div>
 
     <div class="clearfix"></div><br />

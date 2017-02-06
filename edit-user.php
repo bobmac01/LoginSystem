@@ -13,8 +13,8 @@ if(isset($_POST['btn-update']))
      
     if($crud->update($id,$user,$fname,$lname,$email,$contact))
      {
-      $msg = "<div class='alert alert-info'>
-        <strong>User</strong> was updated <a href='panel.php'>Panel</a>!
+      $msg = "<br /><div class='alert alert-info'>
+        <strong>User</strong> was updated
         </div>";
      }
      else
@@ -47,7 +47,7 @@ if(isset($msg))
 
 <div class="clearfix"></div><br />
 
-<div class="container">
+<div class="container medium">
   
      <form method='post'>
  
@@ -69,21 +69,18 @@ if(isset($msg))
         </tr>
  
         <tr>
-            <td>Your E-mail ID</td>
+            <td>Email</td>
             <td><input type='text' name='email' class='form-control' value="<?php echo $email; ?>" required></td>
         </tr>
  
         <tr>
-            <td>Contact No</td>
+            <td>Contact</td>
             <td><input type='text' name='contact' class='form-control' value="<?php echo $contact; ?>" required maxlength="10" onkeypress="return isNumberKey(event)"></td>
         </tr>
- 
         <tr>
             <td colspan="2">
-                <button type="submit" class="btn btn-primary" name="btn-update">
-       <span class="glyphicon glyphicon-edit"></span> Save update
-    </button>
-                <a href="index.php" class="btn btn-large btn-success"><i class="glyphicon glyphicon-backward"></i> Cancel</a>
+                <button type="submit" class="btn btn-primary" name="btn-update" style="float: right;">Save update</button>
+                <a href="panel.php" class="btn btn-large btn-success">Cancel</a>
             </td>
         </tr>
  

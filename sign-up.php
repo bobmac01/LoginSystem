@@ -70,7 +70,7 @@ if(isset($_POST['btn-signup']))
                 {
                     ?>
                     <div class="alert alert-danger">
-                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
+                        <?php echo $error; ?>
                     </div>
                     <?php
                 }
@@ -79,7 +79,7 @@ if(isset($_POST['btn-signup']))
             {
                 ?>
                 <div class="alert alert-info">
-                    <i class="glyphicon glyphicon-log-in"></i>That's you registered registered <a href='index.php'>login</a> here
+                    <i class="glyphicon glyphicon-log-in"></i>That's you registered registered <a href='login.php'>login</a> here
                 </div>
                 <?php
             }
@@ -96,11 +96,11 @@ if(isset($_POST['btn-signup']))
             <div class="clearfix"></div><hr />
             <div class="form-group">
                 <button type="submit" class="btn btn-block btn-primary" name="btn-signup">
-                    <i class="glyphicon glyphicon-open-file"></i>Sign Up
+                    Sign Up
                 </button>
             </div>
             <br />
-            <label>Already registered?<a href="login.php"> Sign In here</a></label>
+            <label style="float: right;">Already registered?<a href="login.php"> Sign In here</a></label>
         </form>
     </div>
 </div>
