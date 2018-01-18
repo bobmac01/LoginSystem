@@ -9,18 +9,16 @@
 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300" rel="stylesheet">
 	<script src="scripts/functions.js"></script>
 </head>
-
 <body>
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+	    <div class="container">
 
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
+		<div class="navbar-header">
+		    <a class="navbar-brand" href="panel.php">Admin</a>
+		    <a class="navbar-brand" href="add-data.php">Add User</a>
+		    <a class="navbar-brand right" href="login.php" style="float: right;">Log In</a>
+		    <a class="navbar-brand right" href="sign-up.php" style="float: right;">Register</a>
+		</div>
 
-        <div class="navbar-header">
-            <a class="navbar-brand" href="panel.php">Admin</a>
-            <a class="navbar-brand" href="add-data.php">Add User</a>
-            <a class="navbar-brand right" href="login.php" style="float: right;">Log In</a>
-            <a class="navbar-brand right" href="sign-up.php" style="float: right;">Register</a>
-        </div>
-
-    </div>
-</div>
+	    </div>
+	</div>
