@@ -1,6 +1,6 @@
 <?php
 
-    // Fill these in with the database details
+    // Update this area with your database connection details.
     $db_host = 'localhost';
     $db_user = 'root';
     $db_pass = 'root';
